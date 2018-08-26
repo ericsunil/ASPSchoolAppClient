@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SCHOOLAPPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Abouts">
+          <Key>
+            <PropertyRef Name="AboutID" />
+          </Key>
+          <Property Name="AboutID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Introduction" Type="nvarchar(max)" />
+          <Property Name="Rules" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Announcements">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="AnnouncementID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Assignments">
+          <Key>
+            <PropertyRef Name="AssignmentID" />
+          </Key>
+          <Property Name="AssignmentID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="nvarchar" MaxLength="10" />
+          <Property Name="SubjectToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GradeToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Attendances">
+          <Key>
+            <PropertyRef Name="AttendanceID" />
+          </Key>
+          <Property Name="AttendanceID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Present" Type="int" />
+          <Property Name="Absent" Type="int" />
+          <Property Name="Year" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DesignationSettings">
+          <Key>
+            <PropertyRef Name="DesignationSettingID" />
+          </Key>
+          <Property Name="DesignationSettingID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DesignationToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="DesignationName" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Grades">
+          <Key>
+            <PropertyRef Name="GradeID" />
+          </Key>
+          <Property Name="GradeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GradeToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClassAlpha" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClassRoman" Type="nvarchar" MaxLength="15" />
+          <Property Name="ClassNumeric" Type="int" />
+          <Property Name="Section" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="GradeSettings">
+          <Key>
+            <PropertyRef Name="GradeSettingID" />
+          </Key>
+          <Property Name="GradeSettingID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GradeToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="SchoolToken" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="500" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Notices">
+          <Key>
+            <PropertyRef Name="NoticeID" />
+          </Key>
+          <Property Name="NoticeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Parents">
+          <Key>
+            <PropertyRef Name="ParentID" />
+          </Key>
+          <Property Name="ParentID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="EntryToken" Type="int" Nullable="false" />
+          <Property Name="ContactNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SchoolToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParentToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentTransactionToken" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Personnels">
+          <Key>
+            <PropertyRef Name="PersonnelID" />
+          </Key>
+          <Property Name="PersonnelID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="DesignationToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Position" Type="nvarchar" MaxLength="150" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="10" />
+          <Property Name="SchoolToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImageToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="SchoolRegisters">
+          <Key>
+            <PropertyRef Name="SchoolID" />
+          </Key>
+          <Property Name="SchoolID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SchoolName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contact" Type="nchar" MaxLength="10" />
+          <Property Name="Website" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Latitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="Longitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SchoolSubjectSettings">
+          <Key>
+            <PropertyRef Name="SchoolSubjectSettingID" />
+          </Key>
+          <Property Name="SchoolSubjectSettingID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubjectToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GradeToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sliders">
+          <Key>
+            <PropertyRef Name="SliderID" />
+          </Key>
+          <Property Name="SliderID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="SchoolToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="GradeToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="StudentWalls">
+          <Key>
+            <PropertyRef Name="StudentWallID" />
+          </Key>
+          <Property Name="StudentWallID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="nvarchar" MaxLength="10" />
+          <Property Name="StudentToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SubjectSettings">
+          <Key>
+            <PropertyRef Name="SubjectSettingID" />
+          </Key>
+          <Property Name="SubjectSettingID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubjectToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="TypeSettings">
+          <Key>
+            <PropertyRef Name="TypeSettingID" />
+          </Key>
+          <Property Name="TypeSettingID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityContainer Name="SCHOOLAPPModelStoreContainer">
+          <EntitySet Name="Abouts" EntityType="Self.Abouts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Announcements" EntityType="Self.Announcements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Assignments" EntityType="Self.Assignments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attendances" EntityType="Self.Attendances" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DesignationSettings" EntityType="Self.DesignationSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GradeSettings" EntityType="Self.GradeSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notices" EntityType="Self.Notices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parents" EntityType="Self.Parents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personnels" EntityType="Self.Personnels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchoolRegisters" EntityType="Self.SchoolRegisters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchoolSubjectSettings" EntityType="Self.SchoolSubjectSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sliders" EntityType="Self.Sliders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentWalls" EntityType="Self.StudentWalls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubjectSettings" EntityType="Self.SubjectSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeSettings" EntityType="Self.TypeSettings" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SCHOOLAPPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="About">
+          <Key>
+            <PropertyRef Name="AboutID" />
+          </Key>
+          <Property Name="AboutID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Introduction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Rules" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="AttendanceID" />
+          </Key>
+          <Property Name="AttendanceID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Present" Type="Int32" />
+          <Property Name="Absent" Type="Int32" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DesignationSetting">
+          <Key>
+            <PropertyRef Name="DesignationSettingID" />
+          </Key>
+          <Property Name="DesignationSettingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DesignationToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DesignationName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="GradeID" />
+          </Key>
+          <Property Name="GradeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GradeToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClassAlpha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClassRoman" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ClassNumeric" Type="Int32" />
+          <Property Name="Section" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GradeSetting">
+          <Key>
+            <PropertyRef Name="GradeSettingID" />
+          </Key>
+          <Property Name="GradeSettingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GradeToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Parent">
+          <Key>
+            <PropertyRef Name="ParentID" />
+          </Key>
+          <Property Name="ParentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntryToken" Type="Int32" Nullable="false" />
+          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SchoolToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentTransactionToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SchoolRegister">
+          <Key>
+            <PropertyRef Name="SchoolID" />
+          </Key>
+          <Property Name="SchoolID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SchoolName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SchoolSubjectSetting">
+          <Key>
+            <PropertyRef Name="SchoolSubjectSettingID" />
+          </Key>
+          <Property Name="SchoolSubjectSettingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubjectToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GradeToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentWall">
+          <Key>
+            <PropertyRef Name="StudentWallID" />
+          </Key>
+          <Property Name="StudentWallID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="StudentToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SubjectSetting">
+          <Key>
+            <PropertyRef Name="SubjectSettingID" />
+          </Key>
+          <Property Name="SubjectSettingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TypeSetting">
+          <Key>
+            <PropertyRef Name="TypeSettingID" />
+          </Key>
+          <Property Name="TypeSettingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypeName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Abouts" EntityType="Self.About" />
+          <EntitySet Name="Attendances" EntityType="Self.Attendance" />
+          <EntitySet Name="DesignationSettings" EntityType="Self.DesignationSetting" />
+          <EntitySet Name="Grades" EntityType="Self.Grade" />
+          <EntitySet Name="GradeSettings" EntityType="Self.GradeSetting" />
+          <EntitySet Name="Parents" EntityType="Self.Parent" />
+          <EntitySet Name="SchoolRegisters" EntityType="Self.SchoolRegister" />
+          <EntitySet Name="SchoolSubjectSettings" EntityType="Self.SchoolSubjectSetting" />
+          <EntitySet Name="StudentWalls" EntityType="Self.StudentWall" />
+          <EntitySet Name="SubjectSettings" EntityType="Self.SubjectSetting" />
+          <EntitySet Name="TypeSettings" EntityType="Self.TypeSetting" />
+          <EntitySet Name="Announcements" EntityType="SCHOOLAPPModel.Announcement" />
+          <EntitySet Name="Assignments" EntityType="SCHOOLAPPModel.Assignment" />
+          <EntitySet Name="Sliders" EntityType="SCHOOLAPPModel.Slider" />
+          <EntitySet Name="Notices" EntityType="SCHOOLAPPModel.Notice" />
+          <EntitySet Name="Personnels" EntityType="SCHOOLAPPModel.Personnel" />
+          <EntitySet Name="Students" EntityType="SCHOOLAPPModel.Student" />
+          <EntitySet Name="Images" EntityType="SCHOOLAPPModel.Image" />
+        </EntityContainer>
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="AnnouncementID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Assignment">
+          <Key>
+            <PropertyRef Name="AssignmentID" />
+          </Key>
+          <Property Name="AssignmentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolToken" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SubjectToken" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GradeToken" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Slider">
+          <Key>
+            <PropertyRef Name="SliderID" />
+          </Key>
+          <Property Name="SliderID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Notice">
+          <Key>
+            <PropertyRef Name="NoticeID" />
+          </Key>
+          <Property Name="NoticeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Personnel">
+          <Key>
+            <PropertyRef Name="PersonnelID" />
+          </Key>
+          <Property Name="PersonnelID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DesignationToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Position" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolToken" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GradeToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SCHOOLAPPModelStoreContainer" CdmEntityContainer="DBModel">
+          <EntitySetMapping Name="Abouts">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.About">
+              <MappingFragment StoreEntitySet="Abouts">
+                <ScalarProperty Name="AboutID" ColumnName="AboutID" />
+                <ScalarProperty Name="SchoolToken" ColumnName="SchoolToken" />
+                <ScalarProperty Name="Introduction" ColumnName="Introduction" />
+                <ScalarProperty Name="Rules" ColumnName="Rules" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attendances">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.Attendance">
+              <MappingFragment StoreEntitySet="Attendances">
+                <ScalarProperty Name="AttendanceID" ColumnName="AttendanceID" />
+                <ScalarProperty Name="StudentToken" ColumnName="StudentToken" />
+                <ScalarProperty Name="Present" ColumnName="Present" />
+                <ScalarProperty Name="Absent" ColumnName="Absent" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DesignationSettings">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.DesignationSetting">
+              <MappingFragment StoreEntitySet="DesignationSettings">
+                <ScalarProperty Name="DesignationSettingID" ColumnName="DesignationSettingID" />
+                <ScalarProperty Name="DesignationToken" ColumnName="DesignationToken" />
+                <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grades">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.Grade">
+              <MappingFragment StoreEntitySet="Grades">
+                <ScalarProperty Name="GradeID" ColumnName="GradeID" />
+                <ScalarProperty Name="GradeToken" ColumnName="GradeToken" />
+                <ScalarProperty Name="ClassAlpha" ColumnName="ClassAlpha" />
+                <ScalarProperty Name="ClassRoman" ColumnName="ClassRoman" />
+                <ScalarProperty Name="ClassNumeric" ColumnName="ClassNumeric" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GradeSettings">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.GradeSetting">
+              <MappingFragment StoreEntitySet="GradeSettings">
+                <ScalarProperty Name="GradeSettingID" ColumnName="GradeSettingID" />
+                <ScalarProperty Name="GradeToken" ColumnName="GradeToken" />
+                <ScalarProperty Name="SchoolToken" ColumnName="SchoolToken" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parents">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.Parent">
+              <MappingFragment StoreEntitySet="Parents">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+                <ScalarProperty Name="EntryToken" ColumnName="EntryToken" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="SchoolToken" ColumnName="SchoolToken" />
+                <ScalarProperty Name="ParentToken" ColumnName="ParentToken" />
+                <ScalarProperty Name="ParentTransactionToken" ColumnName="ParentTransactionToken" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SchoolRegisters">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.SchoolRegister">
+              <MappingFragment StoreEntitySet="SchoolRegisters">
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="SchoolToken" ColumnName="SchoolToken" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SchoolSubjectSettings">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.SchoolSubjectSetting">
+              <MappingFragment StoreEntitySet="SchoolSubjectSettings">
+                <ScalarProperty Name="SchoolSubjectSettingID" ColumnName="SchoolSubjectSettingID" />
+                <ScalarProperty Name="SchoolToken" ColumnName="SchoolToken" />
+                <ScalarProperty Name="SubjectToken" ColumnName="SubjectToken" />
+                <ScalarProperty Name="GradeToken" ColumnName="GradeToken" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentWalls">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.StudentWall">
+              <MappingFragment StoreEntitySet="StudentWalls">
+                <ScalarProperty Name="StudentWallID" ColumnName="StudentWallID" />
+                <ScalarProperty Name="SchoolToken" ColumnName="SchoolToken" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="StudentToken" ColumnName="StudentToken" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubjectSettings">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.SubjectSetting">
+              <MappingFragment StoreEntitySet="SubjectSettings">
+                <ScalarProperty Name="SubjectSettingID" ColumnName="SubjectSettingID" />
+                <ScalarProperty Name="SubjectToken" ColumnName="SubjectToken" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeSettings">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.TypeSetting">
+              <MappingFragment StoreEntitySet="TypeSettings">
+                <ScalarProperty Name="TypeSettingID" ColumnName="TypeSettingID" />
+                <ScalarProperty Name="TypeToken" ColumnName="TypeToken" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Announcements">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.Announcement">
+              <MappingFragment StoreEntitySet="Announcements">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="SchoolToken" ColumnName="SchoolToken" />
+                <ScalarProperty Name="AnnouncementID" ColumnName="AnnouncementID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Assignments">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.Assignment">
+              <MappingFragment StoreEntitySet="Assignments">
+                <ScalarProperty Name="GradeToken" ColumnName="GradeToken" />
+                <ScalarProperty Name="SubjectToken" ColumnName="SubjectToken" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="SchoolToken" ColumnName="SchoolToken" />
+                <ScalarProperty Name="AssignmentID" ColumnName="AssignmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sliders">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.Slider">
+              <MappingFragment StoreEntitySet="Sliders">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="SchoolToken" ColumnName="SchoolToken" />
+                <ScalarProperty Name="ImageToken" ColumnName="ImageToken" />
+                <ScalarProperty Name="SliderID" ColumnName="SliderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notices">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.Notice">
+              <MappingFragment StoreEntitySet="Notices">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="SchoolToken" ColumnName="SchoolToken" />
+                <ScalarProperty Name="NoticeID" ColumnName="NoticeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personnels">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.Personnel">
+              <MappingFragment StoreEntitySet="Personnels">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ImageToken" ColumnName="ImageToken" />
+                <ScalarProperty Name="SchoolToken" ColumnName="SchoolToken" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DesignationToken" ColumnName="DesignationToken" />
+                <ScalarProperty Name="TypeToken" ColumnName="TypeToken" />
+                <ScalarProperty Name="PersonnelID" ColumnName="PersonnelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="ImageToken" ColumnName="ImageToken" />
+                <ScalarProperty Name="ParentToken" ColumnName="ParentToken" />
+                <ScalarProperty Name="GradeToken" ColumnName="GradeToken" />
+                <ScalarProperty Name="SchoolToken" ColumnName="SchoolToken" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="SCHOOLAPPModel.Image">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="ImageToken" ColumnName="ImageToken" />
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

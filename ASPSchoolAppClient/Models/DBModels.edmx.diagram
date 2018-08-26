@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="db3854fdc5624f819aeb7a17327588b3" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="SCHOOLAPPModel.About" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.Attendance" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.DesignationSetting" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.Grade" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.GradeSetting" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.Parent" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.SchoolRegister" Width="1.5" PointX="6.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.SchoolSubjectSetting" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.StudentWall" Width="1.5" PointX="10.375" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.SubjectSetting" Width="1.5" PointX="8.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.TypeSetting" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.Announcement" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.Assignment" Width="1.5" PointX="0.625" PointY="3.625" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.Slider" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.Notice" Width="1.5" PointX="2.625" PointY="6.75" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.Personnel" Width="1.5" PointX="4.875" PointY="6.75" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.Student" Width="1.5" PointX="11.5" PointY="3.375" />
+        <EntityTypeShape EntityType="SCHOOLAPPModel.Image" Width="1.5" PointX="0.75" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

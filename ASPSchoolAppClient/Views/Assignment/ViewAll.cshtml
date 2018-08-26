@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ASPSchoolAppClient.Models.Assignment>
+
+@{
+    ViewBag.Title = "ViewAll";
+    Layout = null;
+}
+
+
+<table class="table table-striped table-bordered table-condensed table-hover table-responsive" id="dateTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolToken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectToken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GradeToken)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SchoolToken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubjectToken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GradeToken)
+                </td>
+                <td>
+                    <a class="btn btn-success" onclick="Edit('@Url.Action("AddorEdit", "Assignment", new { id=@item.AssignmentID })')"> <i class="fa fa-edit"></i> Edit</a>
+                    <a class="btn btn-danger" onclick="Delete('@Url.Action("Delete", "Assignment", new { id=@item.AssignmentID })')"><i class="fa fa-trash"></i> Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

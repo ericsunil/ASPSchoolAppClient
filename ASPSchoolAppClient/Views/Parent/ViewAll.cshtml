@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ASPSchoolAppClient.Models.Parent>
+
+@{
+    ViewBag.Title = "ViewAll";
+    Layout = null;
+}
+
+<table class="table table-bordered table-condensed table-hover table-striped" id="dataTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ParentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryToken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolToken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParentToken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParentTransactionToken)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryToken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SchoolToken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParentToken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParentTransactionToken)
+                </td>
+                <td>
+                    <a class="btn btn-success" onclick="Edit('@Url.Action("AddorEdit", "Parent", new { id=@item.ParentID })')"> <i class="fa fa-edit"></i> Edit</a>
+                    <a class="btn btn-danger" onclick="Delete('@Url.Action("Delete", "Parent", new { id=@item.ParentID })')"><i class="fa fa-trash"></i> Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
